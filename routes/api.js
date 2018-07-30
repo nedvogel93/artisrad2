@@ -11,8 +11,60 @@ router.post("/api", function(req, res){
     });
 });
 
- 
 
+router.post("/:id/newpost", function(req, res){
+    console.log("hello", req.body);
+    user.update({
+        "_id": req.params.id},
+        {"$push":
+    {
+        "Post":{
+            "postName": req.body.postName,
+            "postDescription": req.body.postDescription,
+            "link": req.body.link
+        }}
+    }).then(()=>{
+    res.json(true);
+}).catch((err) => {
+    res.json(err)
+});
+});
+
+router.post("/:id/:Postid/comments", function(req,res){
+    console.log("sasdasd", req.body.comments);
+    
+    user.update({
+       "_id": req.params.id, "Post._id":req.params.Postid
+    },
+    {"$push":
+{"Post.$.comments": req.body.comments}
+   
+}
+    )
+.then(()=>{
+    res.json(true);
+}).catch((err) => {
+    res.json(err)
+});
+});
+
+router.post("/:id/:Postid/rating", function(req,res){
+    console.log("sasdasd");
+    user.update({
+       "_id": req.params.id, "Post._id":req.params.Postid
+    },
+    {"$push":
+{"Post.$.postRating": req.body.postRating}
+    
+    })
+.then(()=>{
+    res.json(true);
+}).catch((err) => {
+    res.json(err)
+});
+});
+
+ 
 router.get("/api/users", function(req,res){
     console.log("hello");
     user.find().then((docs)=>{res.json(docs);
@@ -30,21 +82,23 @@ router.get("/api/users", function(req,res){
       });
  });
 
-   router.post("/api/:id/comments", function(req,res) {
-      console.log("hello")
-      user.findOneAndUpdate(
+
+ 
+//    router.post("/api/:id/comments", function(req,res) {
+//       console.log("hello")
+//       user.findOneAndUpdate(
           
-        {"Post": req.params.id}, {$push: {"comments": req.params.body}}
+     //   {"Post": req.params.id}, {$push: {"comments": req.params.body}}
         
-      ).then(()=>{
-        res.json(true);
-    }).catch((err) => {
-        res.json(err)
-    });
-      console.log("working")
-       .then(()=>{res.json(true);}).catch((err)=>{res.json(err)
-      });
-  });
+//       ).then(()=>{
+//         res.json(true);
+//     }).catch((err) => {
+//         res.json(err)
+//     });
+//       console.log("working")
+//        .then(()=>{res.json(true);}).catch((err)=>{res.json(err)
+//       });
+//   });
 
 //   router.post("/api/Post/:id/ratings", function(req,res){
 //       console.log("please work")
