@@ -1,29 +1,50 @@
-import React, { Component } from 'react';
-import { Link } from "react-router-dom";
-import './App.css';
-import Item from "/component/pagesItem.js"
+import React, {Component} from "react";
+import "./App.css";
+import {BrowserRouter as Router,Route,Switch,Redirect} from "react-router-dom";
+import Home from "./components/Home.js";
+import Login from "./components/Login.js";
+import Artist from "./components/pages/Artist.js";
+import Gallery from "./components/pages/Gallery.js";
+import axios from "axios";
 
-//class App extends Component {
- // render() {
-   // return (
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <h1 className="App-title">Welcome to React</h1>
-      //   </header>
-      //   <p className="App-intro">
-      //     To get started, edit <code>src/App.js</code> and save to reload.
-      //   </p>
-      // </div>
-      // <Router>
-      //   <div>
-      //     <Navtabs />
-      //     <Route exact path ="/" component = {Home} />
-      //     <Route exact path ="/login" component={Login} />
-      //   </div>
-      // </Router>
-    );
- }
+
+
+class App extends Component{
+  state={
+    loaded:false,
+    authenticated:false,
+  }
+
+  componentDidMount=()=>{
+    axios.get("/auth").then((res)=>{
+      this.setState({loaded:true,
+                     authenticated:res.data})
+    })
+  }
+    setLogin=()=>{
+      this.setState({authenticated:true})
+    }
+
+    render(){
+      if(!this.state.loaded){
+        return null
+      }
+      return(
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/login" render={(props)=><Login {...props} setLogin={this.setLogin}/>}/>
+              {!this.state.authenticated ? <Redirect to='/login'/> : null}
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/gallery" component={Gallery}/>
+              <Route exact path="/artist" component={Artist}/>
+             
+              </Switch>
+              </div>
+              </Router>
+      )
+    }
+  
 }
 
 export default App;
