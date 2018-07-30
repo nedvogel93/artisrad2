@@ -11,6 +11,24 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//sigin-validation logic
+
+var isValid=false;
+
+app.get('/auth',(req,res)=>{
+  res.json(isValid)
+});
+
+app.post('/submit',(req,res)=>{
+  if(req.body.username === "justin" && req.body.password === "climbing"){
+    isValid=true;
+  }
+  res.json(isValid)
+})
+
+
+
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
