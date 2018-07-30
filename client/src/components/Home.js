@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import Navbar from "./Navbar";
 // import API from "../utils/API";
@@ -89,7 +89,8 @@ class Home extends Component {
               );
             })}
 
- {/* <input type="submit" onChange={this.fileChangedHandler}> */}
+ {/* <input type="submit" onChange={this.fileChangedHandler}> }
+ /*
 <button onClick={this.uploadHandler}>Upload!</button>
 
             <h2>Saved Art Collection Favorites</h2>
@@ -125,5 +126,19 @@ class Home extends Component {
 
 
 
+
+export default Home;*/
+
+import React from "react";
+import "../App.css";
+
+const Home = ()=>{
+return(
+    <div>
+<h1>Welcome to Home Page</h1>
+     <a href="/artist">Artist Page</a>
+</div>
+)
+}
 
 export default Home;
