@@ -3,12 +3,13 @@ const user = require("../models/users.js");
 const comments = require("../models/users.js");
 
 router.post("/api", function(req, res){
-    console.log("hello");
-    user.create(req.body).then(()=>{
+    console.log(req.body);
+   /* user.create(req.body).then(()=>{
         res.json(true);
     }).catch((err) => {
         res.json(err)
-    });
+    }); */
+    res.send("got it ace!")
 });
 
 

@@ -137,6 +137,7 @@ return(
     <div>
 <h1>Welcome to Home Page</h1>
      <a href="/artist">Artist Page</a>
+     <a href="/gallery">Gallery</a>
 </div>
 )
 }

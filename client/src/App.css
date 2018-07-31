@@ -1,2 +1,32 @@
+/*  Full App Style   */
+
 body{background-color:lemonchiffon;
   color:teal;}
+
+  .header{text-align:center;
+  }
+
+  /*   Login Component Assignments  */
+
+.signIn{position:relative;
+        left:45%;
+        top:145px;
+        font-size:35px;
+        height:350px;
+        width:450px;
+        border-radius:65%;
+        box-shadow:3px 2px black;
+        background-color:gray;}
+
+
+
+.formClass{position:relative;
+           top:15px;
+           left:55px;}
+
+.loginButton{position:relative;
+             left:80px;}
+
+button:hover{background-color:teal;}
+
+img{height:300px;}
