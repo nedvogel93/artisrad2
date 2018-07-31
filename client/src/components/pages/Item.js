@@ -1,7 +1,15 @@
 import React from "react";
+import axios from "axios";
 
 class Item extends Component {
+    state = {
+        item: {}
+    }
+   componentDidMount() {
+       axios.get(`/api/${this.props.match.params.authorId}/${this.props.match.params.postId}`)
+   } 
    render() {
+       item = this.state.data.user.post;
        return (
            <div>
                <h1>{item.name}</h1>
@@ -23,11 +31,11 @@ class Item extends Component {
                       )
                       }
                    </div>
-                   <form>
-                       {/* code for posting new comment goes here
+                   {/* <form>
+                        code for posting new comment goes here
                         
-                     */}
-                   </form>
+                     
+                   </form> */}
                </div>
            </div>
        )
