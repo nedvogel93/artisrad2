@@ -18,7 +18,7 @@ class App extends Component{
   componentDidMount=()=>{
     axios.get("/auth").then((res)=>{
       this.setState({loaded:true,
-                     authenticated:res.data})
+                     authenticated:true})
     })
   }
     setLogin=()=>{

@@ -21,6 +21,19 @@ if (process.env.NODE_ENV === "production") {
 const routes = require("./routes/api.js");
 app.use(routes);
 
+var isValid=false;
+
+app.get('/auth',(req,res)=>{
+  res.json(isValid)
+});
+
+app.post('/submit',(req,res)=>{
+  if(req.body.username === "justin" && req.body.password === "climbing"){
+    isValid=true;
+  }
+  res.json(isValid)
+})
+
 // Send every other request to the React app
 //app.get("*", (req, res) => {
  // res.sendFile(path.join(__dirname, "./client/build/index.html"));
