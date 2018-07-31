@@ -6,6 +6,7 @@ import Axios from "axios";
 (Axios.get("/api/users/").then(function(response) {
 response.users.map(user => {
     return(
+        
         <div> <h3>Works by {user.userName}</h3>
             {
             user.posts.map(post =>{
@@ -13,15 +14,24 @@ response.users.map(user => {
                 <div>
                         <h3>{post.postName}</h3><br/>
                         <img src={post.postLink}/>
-                        <button aurthorID={user._id} postId={post._id}>More Info</button>
+                        <button authorId={user._id} postId={post._id} onClick={this.likeToKnowMore}>More Info</button>
                 </div>
             )
             })      
-        }</div>
-    )
-     
+            }
+        
+        {function likeToKnowMore(a) {
+            a.preventDefault();
+            console.log("I would like to know more!");
+            // navigate to "/Item/{authorId}/{postId}" with axios.get(/api/{authorId}/{postId})
+            axios.get(`api/${this.authorId}/${this.postId}`).then(function(response){
+                // update state with response
+                // redirect to item.js
+            })
+        }}
+        </div>
+    )     
 });
-
 }))
 
 export default Catalogue;
