@@ -7,7 +7,6 @@ class Login extends Component{
     state={
         username:"",
         password:"",
-        signOrLog:"",
         error:null
     }
 
@@ -16,9 +15,6 @@ class Login extends Component{
     }
     onStateSubmit=(event)=>{
         event.preventDefault();
-        var sog=document.getElementById('signOrLog').value;
-        console.log(sog)
-       
         axios.post('/submit',this.state).then((res)=>{
             if(res.data === true){
                 this.props.setLogin()
@@ -31,22 +27,21 @@ class Login extends Component{
     render(){
         return(
             <div>
-                <h1 className='header'>Who goes there!! Sign in and we shall see...your masterpieces! </h1>
-            <div className="signIn">
-            <form className='formClass'>
-           
-            <input type='radio' id='signOrLog' value='signUp' name='signOrLog'/>Sign Up
-            <input type='radio' id='signOrLog' value='logIn' name='signOrLog'/>Log in
-            
+                <h1>Welcome to The Arttt Review</h1>
+                <br />
+                <div className="App-header"></div><br />
+                <a href="/artist">Artist Page</a>
+                <h3>Please log in to begin critiquing/Submitting art!</h3>
+            <form>
                 <label>Username:
                     <input value={this.state.username}
                            name="username"
                            onChange={this.onStateChange}
                            type="text"/>
                            </label>
-                         </form>
-                         <br/>
-                         <form className='formClass'>
+                           </form>
+                           <br/>
+                           <form>
                            <label>Password:
                            <input value={this.state.password}
                                   name="password"
@@ -55,11 +50,9 @@ class Login extends Component{
                                   </label>
                                   </form>
                                   <br/>
-                                  <button onClick={this.onStateSubmit} className="loginButton">CLICK</button>
-                                 <br/>
-                                 <br/>
+                                  <button onClick={this.onStateSubmit}>CLICK</button>
+                                  <h2>{this.state.username}</h2>
                                   <span>{this.state.error}</span>
-                                  </div>
                                   </div>
                            
         )
