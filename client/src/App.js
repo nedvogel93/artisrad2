@@ -36,7 +36,7 @@ class App extends Component{
           <div>
             <Switch>
               <Route exact path="/login" render={(props)=><Login {...props} setLogin={this.setLogin}/>}/>
-              {!this.state.authenticated ? <Redirect to='/login'/> : null}
+              {/* {!this.state.authenticated ? <Redirect to='/login'/> : null} */}
               <Route exact path="/" component={Home}/>
               <Route exact path="/gallery" component={Gallery}/>
               <Route exact path="/artist" component={Artist}/>
