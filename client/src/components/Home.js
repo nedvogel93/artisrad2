@@ -17,8 +17,11 @@ import Test from "../Test.js"
 import {Link} from "react-router-dom";
 import {BrowserRouter as Router,Route} from "react-router-dom";
 
-function addToTest(){
-    <Test name="artist name should render"/>
+var x="justin";
+const addToTest=()=>{
+    return(
+    <Test asshole={x}/>
+    )
 }
 
 const Home = ()=>{
@@ -38,6 +41,7 @@ return(
               />
 <Route exact path="/test" render={addToTest} />
 <Link to="/test">Your Page</Link>
+<a href='/artist'>Create new post </a>
 <div class="footer"><strong>	&copy;</strong>Arttt Review 2018</div>
 </div>
 
