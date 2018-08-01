@@ -1,12 +1,40 @@
 import React, {Component} from "react";
 import "../../App.css";
 import axios from "axios";
+//var link = this.state.link
+export function uploadSuccess({data}) {
+    return {
+        type: "UPLOAD_DOCUMENT_SUCCESS",
+        data,
+    };
+}
+
+export function uploadFail(error) {
+    return {
+        type: "UPLOAD_DOCUMENT_FAIL",
+        error,
+    };
+}
+
+export function uploadDocumentRequest({file, name}){
+    let data = new FormData();
+    data.append("file",document);
+    data.append("name",name)
+
+    return (dispatch) => {
+        axios.post("/files", data)
+        .then(response => dispatch(uploadSuccess(response)))
+        .catch(error => dispatch(uploadFail(error)));
+    };
+}
+
 
 
 class Artist extends Component{
     state={
         postName:"",
         postDescription:"",
+<<<<<<< HEAD
         postLink:"",
         artistsArtComments:[],
       
@@ -16,25 +44,59 @@ class Artist extends Component{
     componentDidMount=()=>{
         axios.get("/api/:id").then((res)=>{
         this.setState({artistsArtComments:res.data})})
+=======
+        file: ""
+      
+      
+    }
+   
+   
+    
+   handleFileUpload = (event) =>{
+        console.log(event.target.files[0])
+        this.setState({file:event.target.files[0]})
+        
+>>>>>>> nuuuubranch
     }
 
-  
 
-    onStateChange=(event)=>{
+    
+    fileChangedHandler = (event) => {
+        this.setState({selectedFile: event.target.files[0]})
+      }
+      
+     awesomeFunction = (event) => { 
+        event.preventDefault() 
+         console.log(this.state.file)
+       }
+
+     onStateChange=(event)=>{
         this.setState({[event.target.name]:event.target.value})
-    }
+     }
 
     submitArt=(event)=>{
-       event.preventDefault()
+        event.preventDefault()
        
        
-        console.log(this.state)
-        axios.post('/api',this.state).then((res)=>{
-          console.log(res)
+         console.log(this.state)
+        axios.post(`/api/${this.state.USERIDGOESHERE}`,this.state).then((res)=>{
+           if (res.data ===true) {
+               console.log('Success!');
+               this.setState({
+                   postName: "",
+                   postDescription: "",
+                   file: ""
+               })
+           }
+           else {
+               alert("Error! File not posted.")
+           }
         })
-    }
+     }
 
 render(){
+    
+    
     return(
         <div>
    
@@ -51,8 +113,9 @@ render(){
 })}
 </div>
 <form>
+    
     <label>Post Name:
-        <input value={this.state.postName}
+        <input id = "title" value={this.state.postName}
                 name="postName"
                 type="text"
                 onChange={this.onStateChange}
@@ -61,22 +124,20 @@ render(){
         </form>
         <form>
     <label>Post Description:
-        <input value={this.state.postDescription}
+        <input id = "description" value={this.state.postDescription}
                 name="postDescription"
                 type="text"
                 onChange={this.onStateChange}
                 placeholder=""/>
+         
         </label>
+      
+       
         </form>
         <form>
-    <label>Post Link:
-        <input value={this.state.postLink}
-                name="postLink"
-                type="text"
-                onChange={this.onStateChange}
-                placeholder=""/>
-        </label>
-        </form>
+        <input id = "myUpload" type="file" name = "myUpload" onChange={this.handleFileUpload}/>
+      
+       </form>
         <button onClick={this.submitArt}>Send</button>
 <a href='/'>Home</a>
 </div>
@@ -87,6 +148,8 @@ render(){
  
 }
 }
+
+
 
 
 export default Artist;
