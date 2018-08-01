@@ -7,6 +7,7 @@ import Artist from "./components/pages/Artist.js";
 import axios from "axios";
 import Catalogue from "./components/pages/Catalogue.js";
 import Item from "./components/pages/Item.js";
+import Test from "./Test.js"
 
 
 
@@ -46,6 +47,7 @@ class App extends Component{
               <Route exact path="/artist" component={Artist}/>
               <Route exact path= "/catalogue" component ={Catalogue}/>
               <Route exact path="/item/:authorId/:postId" component = {Item}/>
+              <Route exact path="/test" component={Test}/>
              
               </Switch>
               </div>

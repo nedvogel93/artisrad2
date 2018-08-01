@@ -26,7 +26,7 @@ class Catalogue extends React.Component {
                                 <div>
                                     <h3>{post.postName}</h3><br />
                                     <img src={post.postLink} />
-                                    <Link authorId={user._id} postId={post._id} to={`/item/${authorId}/${postId}`}>More Info</Link>
+                                    {/* <Link authorId={user._id} postId={post._id} to={`/item/${authorId}/${postId}`}>More Info</Link> */}
                                 </div>
                             )
                         })

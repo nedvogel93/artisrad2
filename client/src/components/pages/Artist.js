@@ -8,7 +8,14 @@ class Artist extends Component{
         postName:"",
         postDescription:"",
         postLink:"",
+        artistsArtComments:[],
       
+    }
+//Collect users own artwork/comments about their artwork
+//may have to just hardcode a req.params.id for demo purposes
+    componentDidMount=()=>{
+        axios.get("/api/:id").then((res)=>{
+        this.setState({artistsArtComments:res.data})})
     }
 
   
@@ -32,6 +39,17 @@ render(){
         <div>
    
 <h1 className='header'>Artist Page</h1>
+{/* // A div container that will map thru an individuals
+       pictures, picture names and comments about picture */}
+<div className="artAndComments">
+{this.state.artistsArtComments.map(artistItem=>{
+    <h4>{artistItem.Post.postName}</h4>
+    // <img src={artistItem.Post.link}/>
+    // <ul>
+        // <li>{artistItem.Post.comments}</li>
+        // </ul>
+})}
+</div>
 <form>
     <label>Post Name:
         <input value={this.state.postName}

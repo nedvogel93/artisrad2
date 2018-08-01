@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import axios from "axios";
 
 class Item extends Component {
@@ -29,7 +29,7 @@ class Item extends Component {
        axios.get(`/api/${this.props.match.params.authorId}/${this.props.match.params.postId}`)
    } 
    render() {
-       item = this.state.data.user.post;
+       var item = this.state.data.user.post;
        return (
            <div>
                <h1>{item.postName}</h1>
