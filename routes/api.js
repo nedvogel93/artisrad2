@@ -3,14 +3,14 @@ const user = require("../models/users.js");
 const comments = require("../models/users.js");
 
 router.post("/api", function(req, res){
-    console.log(req.body);
-   /* user.create(req.body).then(()=>{
+    console.log("hello");
+    user.create(req.body).then(()=>{
         res.json(true);
     }).catch((err) => {
         res.json(err)
-    }); */
-    res.send("got it ace!")
+    });
 });
+
 
 
 router.post("/:id/newpost", function(req, res){
@@ -83,6 +83,12 @@ router.get("/api/users", function(req,res){
       });
  });
 
+ router.get("/api/:id/:postId", function (req,res){
+     user.findOne({"_id": req.params.id, "Post._id":req.params.Postid}).then((docs) => {
+        res.json(docs);
+     
+    });
+ });
 
  
 //    router.post("/api/:id/comments", function(req,res) {
