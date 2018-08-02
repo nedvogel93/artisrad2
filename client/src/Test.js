@@ -16,11 +16,11 @@ class Test extends Component{
 
     componentDidMount(){
         axios.get('/api/users').then((res)=>{
-            //console.log(res.data)
-            this.setState({
+            console.log(res.data)
+           this.setState({
                 results: res.data
             })
-            console.log(this.state.results)
+            console.log(this.state.results,'follow us to the front!!')
           
             // this.setState({name:res.data[0].userName})
             // this.setState({postName:res.data[0].Post[0].postName})
@@ -45,8 +45,8 @@ class Test extends Component{
             return(
             <div>
                 <h3> Work by: {user.userName}</h3>
-                <h3> Post Name: {user.Post[0].postName}</h3>
-                <h3> Post Rating: {user.Post[0].postRating}</h3>
+                <h3> Post Name: {user.Post.postName}</h3>
+                <h3> Post Rating: {user.Post.postRating}</h3>
                 <h3> Post Description: {user.Post.postDescription}</h3>
                 <img src = {user.Post.link} className = "center"/>
                 
