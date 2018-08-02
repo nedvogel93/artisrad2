@@ -68,9 +68,10 @@ router.post("/:id/:Postid/rating", function(req,res){
  
 router.get("/api/users", function(req,res){
     console.log("hello");
-    user.find().then((docs)=>{res.json(docs);
+    // user.find().then((docs)=>{res.json(demoObject);
+    res.send(demoObject)
     });
-});
+
 
 
 router.get("/api/:id", function(req,res){
@@ -82,27 +83,6 @@ router.get("/api/:id", function(req,res){
        
       });
  });
-
- var demoObject=[{
-        name:"Brian",
-        password:"yourbitchcantdrive",
-        post:[{
-            postName:"ducks on a pond",
-            postRating:7,
-            postDescription:"ducks peacefully on a pond",
-            link:"https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-duck-pond-mindy-newman.jpg",
-            comments:[{
-                comment:"Really like those ducks!",
-            },
-        {
-                comment:"Duck on a pond. Genius!"
-        },
-    {
-                coment:"Could stare at it for hours"
-    }]
-        }]
- }]
-
 
 //  var demoObject=[{
 //         name:"Brian",
@@ -124,10 +104,88 @@ router.get("/api/:id", function(req,res){
 //         }]
 //  }]
 
-//  router.get('/fakePath',(req,res)=>{
+
+ var demoObject=[{
+        userName:"Bryan",
+        password:"password",
+        Post:[{
+            postName:"Ducks on a Pond",
+            postRating:7,
+            postDescription:"ducks peacefully on a pond",
+            link:"https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-duck-pond-mindy-newman.jpg",
+            comments:[{
+                comment:"Really like those ducks!",
+            },
+        {
+                comment:"Duck on a pond. Genius!"
+        },
+    {
+                comment:"Could stare at it for hours"
+    }]
+        }]
+ },
+ {
+    userName:"Justin",
+    password:"password",
+    Post:[{
+        postName:"Mona Lisa",
+        postRating:7,
+        postDescription:"ducks peacefully on a pond",
+        link:"https://cdn.britannica.com/300x500/24/189624-131-BAF1184D.jpg",
+        comments:[{
+            comment:"Really like those ducks!",
+        },
+    {
+            comment:"Duck on a pond. Genius!"
+    },
+{
+            comment:"Could stare at it for hours"
+}]
+    }]
+},
+{
+    userName:"Ji",
+    password:"password",
+    Post:[{
+        postName:"Ducks on a Pond",
+        postRating:7,
+        postDescription:"ducks peacefully on a pond",
+        link:"http://images4.alphacoders.com/955/95578.jpg",
+        comments:[{
+            comment:"Really like those ducks!",
+        },
+    {
+            comment:"Duck on a pond. Genius!"
+    },
+{
+            comment:"Could stare at it for hours"
+}]
+    }]
+},
+{
+userName:"Ned",
+password:"password",
+Post:[{
+    postName:"The Last Supper",
+    postRating:7,
+    postDescription:"ducks peacefully on a pond",
+    link:"https://images-na.ssl-images-amazon.com/images/I/71U4WPakgqL._SL1000_.jpg",
+    comments:[{
+        comment:"Really like those ducks!",
+    },
+{
+        comment:"Duck on a pond. Genius!"
+},
+{
+        comment:"Could stare at it for hours"
+}]
+}]
+}]
+
+ router.get('/catalogue',(req,res)=>{
     
-//      res.send(demoObject)
-//  })
+     res.send(demoObject)
+ })
 
 
  router.get("/api/:id/:postId", function (req,res){

@@ -11,7 +11,9 @@ class Catalogue extends React.Component {
         axios.get("/api/users/").then((response) => {
             this.setState({
                 results: response.data
+
             })
+            console.log(this.state.results, "hello")
         });
     }
 
@@ -29,7 +31,9 @@ class Catalogue extends React.Component {
                                         <h3>{user.Post.postName}</h3><br />
                                         <img src={user.Post.link} alt={user.Post.postName} className = "center"/>
                                         {/* <Link  to={`/item/${authorId}/${postId}`}>More Info</Link> */}
+                                        <br/>
                                     </div>
+                                    
                                 )
                             })
                         }

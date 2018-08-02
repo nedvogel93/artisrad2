@@ -6,6 +6,7 @@ import Login from "./components/Login.js";
 import Artist from "./components/pages/Artist.js";
 import Catalogue from "./components/pages/Catalogue.js";
 import axios from "axios";
+import Test from "./Test.js"
 
 import NavTabs from "./components/NavTabs.js"
 
@@ -43,6 +44,7 @@ class App extends Component{
               <Route exact path="/" component={Home}/>
               <Route exact path="/catalogue" component={Catalogue}/>
               <Route exact path="/artist" component={Artist}/>
+              <Route exact path="/test" component={Test}/>
              
             </Switch>
             </div>
