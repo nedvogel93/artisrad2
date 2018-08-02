@@ -83,53 +83,6 @@ router.get("/api/:id", function(req,res){
       });
  });
 
-<<<<<<< HEAD
-=======
-
-router.post('/submit',(req,res)=>{
-    console.log('i fuckin hate you')
-    // var pulledUsers=[];
-    //console.log("talk to me you fuck!!!")
-    var submittedUser=req.body.userName
-    user.find().then((docs)=>{
-        for(var i=0;i<docs.length;i++){
-            if (submittedUser === docs[i].userName){
-                console.log("found")
-                res.send(docs[i], "hello")
-                
-            }
-            else{
-                console.log("nope!")
-            }
-        }
-        
-})
-    //    console.log("Pulled users: " +pulledUsers)
-    //    console.log("Submitted" + submittedUser)
- 
-    
-//   var indexOfUser= users.findIndex(i => i.name === submittedUser.name);
-  
-//   if(submittedUser.password === users[indexOfUser].password){
-  /*if (req.body.userName === "bryan" && req.body.password === "password"){
-
-  
-  console.log(submittedUser.password);
-  console.log('nailed it!')
-  loggedIn=true;
-  } 
-  else{loggedIn=false;} */
-  
-  
-  });
-
-//   router.get('/submit',(req,res)=>{
-//       res.send(user)
-//   })
- 
-
-
->>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
  var demoObject=[{
         name:"Brian",
         password:"yourbitchcantdrive",
@@ -183,10 +136,6 @@ router.post('/submit',(req,res)=>{
      
     });
  });
-<<<<<<< HEAD
-=======
-
->>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
 
  
 //    router.post("/api/:id/comments", function(req,res) {
