@@ -59,14 +59,8 @@ class Login extends Component{
                                   </label>
                                   </form>
                                   <br/>
-<<<<<<< HEAD
-                                  <button onClick={this.onStateSubmit}>Sign Up</button>
-                                  <button onClick={this.loginCheck}>Log In</button>
-                                  <h2>{this.state.username}</h2>
-=======
                                   <button onClick={this.onStateSubmit}>CLICK</button>
                                   <h2>{this.state.userName}</h2>
->>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
                                   <span>{this.state.error}</span>
                                   </div>
                            

@@ -32,15 +32,6 @@ export function uploadDocumentRequest({file, name}){
 
 class Artist extends Component{
     state={
-<<<<<<< HEAD
-        postName:"",
-        postDescription:"",
-        link: "",
-        file: {}
-      
-    }
-   
-=======
 
         
     
@@ -57,7 +48,6 @@ class Artist extends Component{
     //     this.setState({artistsArtComments:res.data})})
     // }
 
->>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
    
     
    handleFileUpload = (event) =>{
@@ -84,35 +74,11 @@ class Artist extends Component{
     submitArt=(event)=>{
         event.preventDefault()
        
-<<<<<<< HEAD
-     var formData = new FormData();
-
-     formData.append("postName", this.state.postName);
-     formData.append("postDescription", this.state.postDescription);
-     formData.append("file", this.state.file);
-         console.log(FormData)
-        axios.post("/5b5a3b11eb65072dbfa61da8/newpost", this.state
-           ).then((res)=>{
-           console.log("ihateeverything")
-            if (res.data ===true) {
-               console.log('Success!');
-               this.setState({
-                   postName: "",
-                   postDescription: "",
-                   link:"",
-                   file:{}
-               })
-           }
-           else {
-               alert("Error! File not posted.")
-           }
-=======
        
         console.log(this.state)
         axios.post('/5b6219dbc3d67b341874ee27/newpost',this.state).then((res)=>{
             
         console.log(res, this.state)
->>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
         })
      }
 
@@ -123,12 +89,6 @@ render(){
         <div>
    
 <h1 className='header'>Artist Page</h1>
-<<<<<<< HEAD
-
-<div className="artAndComments">
-
-  
-=======
 {/* // A div container that will map thru an individuals
        pictures, picture names and comments about picture */}
 <div className="comments">
@@ -139,7 +99,6 @@ render(){
         // <li>{artistItem.Post.comments}</li>
         // </ul>
 })}
->>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
 </div>
 <div className = "center">
 <form>
