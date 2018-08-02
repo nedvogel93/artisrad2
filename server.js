@@ -77,8 +77,9 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 const routes = require("./routes/api.js");
 app.use(routes);
+app.use(express.static("uploads"))
 
-var isValid=false;
+var isValid=true;
 
 app.get('/auth',(req,res)=>{
   res.json(isValid)

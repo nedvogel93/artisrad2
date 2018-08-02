@@ -83,7 +83,6 @@ router.get("/api/users", function(req,res){
       });
  });
 
-<<<<<<< HEAD
  var demoObject=[{
         name:"Brian",
         password:"yourbitchcantdrive",
@@ -109,14 +108,12 @@ router.get("/api/users", function(req,res){
      res.send(demoObject)
  })
 
-=======
  router.get("/api/:id/:postId", function (req,res){
      user.findOne({"_id": req.params.id, "Post._id":req.params.Postid}).then((docs) => {
         res.json(docs);
      
     });
  });
->>>>>>> nuuuubranch
 
  
 //    router.post("/api/:id/comments", function(req,res) {

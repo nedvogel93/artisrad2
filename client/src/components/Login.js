@@ -7,18 +7,25 @@ class Login extends Component{
     state={
         username:"",
         password:"",
-        error:null
+        error:null,
+        id:""
     }
 
     onStateChange=(event)=>{
         this.setState({[event.target.name]:event.target.value})
     }
+
+    loginCheck = (event)=>{
+        console.log("rock on")
+    }
+    
     onStateSubmit=(event)=>{
         event.preventDefault();
         axios.post('/submit',this.state).then((res)=>{
             if(res.data === true){
                 this.props.setLogin()
                 this.props.history.push('/')
+                
             }
             else{this.setState({error:"Wrong name or password!"})}
         })
@@ -50,7 +57,8 @@ class Login extends Component{
                                   </label>
                                   </form>
                                   <br/>
-                                  <button onClick={this.onStateSubmit}>CLICK</button>
+                                  <button onClick={this.onStateSubmit}>Sign Up</button>
+                                  <button onClick={this.loginCheck}>Log In</button>
                                   <h2>{this.state.username}</h2>
                                   <span>{this.state.error}</span>
                                   </div>

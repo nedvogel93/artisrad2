@@ -32,6 +32,11 @@ const NavTabs = () => (
         Log In/Sign Up
       </Link>
     </li>
+    <li className="nav-item">
+      <Link to="/catalogue" className={window.location.pathname==="/catalogue" ? "nav-link active":"nav-link"}>
+        Browse all works
+      </Link>
+    </li>
 
 
 

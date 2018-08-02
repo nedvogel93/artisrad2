@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import "../../App.css";
 import axios from "axios";
-//var link = this.state.link
+
 export function uploadSuccess({data}) {
     return {
         type: "UPLOAD_DOCUMENT_SUCCESS",
@@ -34,19 +34,8 @@ class Artist extends Component{
     state={
         postName:"",
         postDescription:"",
-<<<<<<< HEAD
-        postLink:"",
-        artistsArtComments:[],
-      
-    }
-//Collect users own artwork/comments about their artwork
-//may have to just hardcode a req.params.id for demo purposes
-    componentDidMount=()=>{
-        axios.get("/api/:id").then((res)=>{
-        this.setState({artistsArtComments:res.data})})
-=======
-        file: ""
-      
+        link: "",
+        file: {}
       
     }
    
@@ -56,7 +45,6 @@ class Artist extends Component{
         console.log(event.target.files[0])
         this.setState({file:event.target.files[0]})
         
->>>>>>> nuuuubranch
     }
 
 
@@ -77,15 +65,22 @@ class Artist extends Component{
     submitArt=(event)=>{
         event.preventDefault()
        
-       
-         console.log(this.state)
-        axios.post(`/api/${this.state.USERIDGOESHERE}`,this.state).then((res)=>{
-           if (res.data ===true) {
+     var formData = new FormData();
+
+     formData.append("postName", this.state.postName);
+     formData.append("postDescription", this.state.postDescription);
+     formData.append("file", this.state.file);
+         console.log(FormData)
+        axios.post("/5b5a3b11eb65072dbfa61da8/newpost", this.state
+           ).then((res)=>{
+           console.log("ihateeverything")
+            if (res.data ===true) {
                console.log('Success!');
                this.setState({
                    postName: "",
                    postDescription: "",
-                   file: ""
+                   link:"",
+                   file:{}
                })
            }
            else {
@@ -101,16 +96,10 @@ render(){
         <div>
    
 <h1 className='header'>Artist Page</h1>
-{/* // A div container that will map thru an individuals
-       pictures, picture names and comments about picture */}
+
 <div className="artAndComments">
-{this.state.artistsArtComments.map(artistItem=>{
-    <h4>{artistItem.Post.postName}</h4>
-    // <img src={artistItem.Post.link}/>
-    // <ul>
-        // <li>{artistItem.Post.comments}</li>
-        // </ul>
-})}
+
+  
 </div>
 <form>
     
@@ -123,7 +112,17 @@ render(){
         </label>
         </form>
         <form>
-    <label>Post Description:
+
+           <label>Post Name:
+        <input id = "post" value={this.state.link}
+                name="linkie"
+                type="text"
+                onChange={this.onStateChange}
+                placeholder=""/>
+        </label>
+        </form>
+        <form> 
+    <label> Add Link:
         <input id = "description" value={this.state.postDescription}
                 name="postDescription"
                 type="text"
@@ -131,9 +130,19 @@ render(){
                 placeholder=""/>
          
         </label>
-      
-       
-        </form>
+       </form>
+
+       <form>
+       <label>Add Link:
+        <input id = "hooray" value={this.state.link}
+                name="postiepost"
+                type="text"
+                onChange={this.onStateChange}
+                placeholder=""/>
+         
+        </label> 
+       </form>
+        
         <form>
         <input id = "myUpload" type="file" name = "myUpload" onChange={this.handleFileUpload}/>
       

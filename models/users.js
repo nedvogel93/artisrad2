@@ -24,7 +24,11 @@ const userSchema = new Schema({
        
         link: {
             type: String,
-            required: true
+            required: false
+        },
+        file: {
+            type: Object,
+            required: false
         },
         comments: [{
             type: String,
