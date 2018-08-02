@@ -2,7 +2,8 @@ const express = require("express");
 //const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+const fileUpload = require("express-fileupload")
+const cors = require("cors")
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -78,6 +79,19 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 const routes = require("./routes/api.js");
 app.use(routes);
+
+var isValid=false;
+
+app.get('/auth',(req,res)=>{
+  res.json(isValid)
+});
+
+app.post('/submit',(req,res)=>{
+  if(req.body.username === "justin" && req.body.password === "climbing"){
+    isValid=true;
+  }
+  res.json(isValid)
+})
 
 // Send every other request to the React app
 //app.get("*", (req, res) => {

@@ -1,10 +1,38 @@
 import React, {Component} from "react";
 import "../../App.css";
 import axios from "axios";
+//var link = this.state.link
+export function uploadSuccess({data}) {
+    return {
+        type: "UPLOAD_DOCUMENT_SUCCESS",
+        data,
+    };
+}
+
+export function uploadFail(error) {
+    return {
+        type: "UPLOAD_DOCUMENT_FAIL",
+        error,
+    };
+}
+
+export function uploadDocumentRequest({file, name}){
+    let data = new FormData();
+    data.append("file",document);
+    data.append("name",name)
+
+    return (dispatch) => {
+        axios.post("/files", data)
+        .then(response => dispatch(uploadSuccess(response)))
+        .catch(error => dispatch(uploadFail(error)));
+    };
+}
+
 
 
 class Artist extends Component{
     state={
+
         
     
             postName:"",
@@ -20,11 +48,28 @@ class Artist extends Component{
     //     this.setState({artistsArtComments:res.data})})
     // }
 
-  
-
-    onStateChange=(event)=>{
-        this.setState({[event.target.name]:event.target.value})
+   
+    
+   handleFileUpload = (event) =>{
+        console.log(event.target.files[0])
+        this.setState({file:event.target.files[0]})
+        
     }
+
+
+    
+    fileChangedHandler = (event) => {
+        this.setState({selectedFile: event.target.files[0]})
+      }
+      
+     awesomeFunction = (event) => { 
+        event.preventDefault() 
+         console.log(this.state.file)
+       }
+
+     onStateChange=(event)=>{
+        this.setState({[event.target.name]:event.target.value})
+     }
 
     submitArt=(event)=>{
         event.preventDefault()
@@ -35,9 +80,11 @@ class Artist extends Component{
             
         console.log(res, this.state)
         })
-    }
+     }
 
 render(){
+    
+    
     return(
         <div>
    
@@ -55,8 +102,9 @@ render(){
 </div>
 <div className = "center">
 <form>
+    
     <label>Post Name:
-        <input value={this.state.postName}
+        <input id = "title" value={this.state.postName}
                 name="postName"
                 type="text"
                 onChange={this.onStateChange}
@@ -65,12 +113,15 @@ render(){
         </form>
         <form>
     <label>Post Description:
-        <input value={this.state.postDescription}
+        <input id = "description" value={this.state.postDescription}
                 name="postDescription"
                 type="text"
                 onChange={this.onStateChange}
                 placeholder=""/>
+         
         </label>
+      
+       
         </form>
         <form>
     <label>Post Link:
@@ -86,8 +137,14 @@ render(){
 </div>
 </div>
     )
+
+    
+
+ 
 }
 }
+
+
 
 
 export default Artist;
