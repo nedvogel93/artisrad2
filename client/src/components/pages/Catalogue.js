@@ -22,14 +22,14 @@ class Catalogue extends React.Component {
                     <div>
                         <h3>Works by {user.userName}</h3>
                         {
-                            user.posts.map(post => {
+                            user.Post.map(post => {
                                 let authorId=user._id;
                                 let postId=post._id;
                                 return (
                                     <div>
                                         <h3>{post.postName}</h3><br />
-                                        <img src={post.Link} alt={post.postName}/>
-                                        <Link  to={`/item/${authorId}/${postId}`}>More Info</Link>
+                                        <img src={post.link} alt={post.postName} className = "center"/>
+                                        {/* <Link  to={`/item/${authorId}/${postId}`}>More Info</Link> */}
                                     </div>
                                 )
                             })
