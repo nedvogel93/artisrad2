@@ -8,15 +8,16 @@ const userSchema = new Schema({
      },
      password: {
          type: String,
-         required: true 
+         required: false 
      },
      Post:[
-    {     postName:{
+        {
+        postName:{
              type: String,
              required: true
-         },
-         postRating: {type: Array,
-                      required: false  },
+        },
+        postRating: {type: Array,
+                      required: false},
         postDescription:{
             type: String,
             required: true

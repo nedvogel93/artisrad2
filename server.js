@@ -43,24 +43,26 @@ var users=[{
   password:"artt"
 }]
 
-app.post('/submit',(req,res)=>{
-  var submittedUser={
-    name:req.body.username,
-    password:req.body.password
-}
+// app.post('/submit',(req,res)=>{
+//   var submittedUser={
+//     name:req.body.userName,
+//     password:req.body.password
+// }
+//   user.find().then((docs)=>{console.log(docs)
+//      })
 
-var indexOfUser= users.findIndex(i => i.name === submittedUser.name);
+// // var indexOfUser= users.findIndex(i => i.name === submittedUser.name);
 
-if(submittedUser.password === users[indexOfUser].password){
+// // if(submittedUser.password === users[indexOfUser].password){
 
-console.log(submittedUser.password);
-console.log('nailed it!')
-loggedIn=true;
-} 
-else{loggedIn=false;}
+// // console.log(submittedUser.password);
+// // console.log('nailed it!')
+// // loggedIn=true;
+// // } 
+// // else{loggedIn=false;}
 
-res.json(loggedIn)
-});
+// res.end();
+// });
 
 
 

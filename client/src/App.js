@@ -8,6 +8,7 @@ import axios from "axios";
 import Catalogue from "./components/pages/Catalogue.js";
 import Item from "./components/pages/Item.js";
 import Test from "./Test.js"
+import NavTabs from "./components/NavTabs.js"
 
 
 
@@ -40,6 +41,7 @@ class App extends Component{
       return(
         <Router>
           <div>
+            <NavTabs />
             <Switch>
               <Route exact path="/login" render={(props)=><Login {...props} setLogin={this.setLogin}/>}/>
               {/* {!this.state.authenticated ? <Redirect to='/login'/> : null} */}

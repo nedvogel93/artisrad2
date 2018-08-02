@@ -31,16 +31,12 @@ return(
 <h1>Welcome to The Arttt Review</h1>
 <br />
 <div className="App-header"></div><br />
- <h3>Search for and annotate articles of interest!</h3>
+ {/* <h3>Search for and annotate articles of interest!</h3> */}
      <br />
      
-     <SearchForm
-                // value={this.state.search}
-                // handleInputChange={this.handleInputChange}
-                // handleFormSubmit={this.handleFormSubmit}
-              />
+     
 <Route exact path="/test" render={addToTest} />
-<Link to="/test">Your Page</Link>
+<Link to="/catalogue">Gallery</Link>
 <a href='/artist'>Create new post </a>
 <div class="footer"><strong>	&copy;</strong>Arttt Review 2018</div>
 </div>

@@ -18,14 +18,14 @@ class Catalogue extends React.Component {
     render() {
         return (
             this.state.results.map(user => {
-                <div>
+                return (<div>
                     <h3>Works by {user.userName}</h3>
                     {
-                        user.posts.map(post => {
+                        user.Post.map(post => {
                             return (
                                 <div>
                                     <h3>{post.postName}</h3><br />
-                                    <img src={post.postLink} />
+                                    <img src={post.link} className = "center" />
                                     {/* <Link authorId={user._id} postId={post._id} to={`/item/${authorId}/${postId}`}>More Info</Link> */}
                                 </div>
                             )
@@ -33,7 +33,7 @@ class Catalogue extends React.Component {
                     }
 
 
-                </div>
+                </div>)
             })
         )
     }

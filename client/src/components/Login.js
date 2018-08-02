@@ -5,7 +5,7 @@ import axios from "axios"
 
 class Login extends Component{
     state={
-        username:"",
+        userName:"",
         password:"",
         error:null
     }
@@ -15,7 +15,9 @@ class Login extends Component{
     }
     onStateSubmit=(event)=>{
         event.preventDefault();
+        console.log("click bitch",this.state)
         axios.post('/submit',this.state).then((res)=>{
+            console.log(this.state, "bro")
             if(res.data === true){
                 this.props.setLogin()
                 this.props.history.push('/')
@@ -34,8 +36,8 @@ class Login extends Component{
                 <h3>Please log in to begin critiquing/Submitting art!</h3>
             <form>
                 <label>Username:
-                    <input value={this.state.username}
-                           name="username"
+                    <input value={this.state.userName}
+                           name="userName"
                            onChange={this.onStateChange}
                            type="text"/>
                            </label>
@@ -51,7 +53,7 @@ class Login extends Component{
                                   </form>
                                   <br/>
                                   <button onClick={this.onStateSubmit}>CLICK</button>
-                                  <h2>{this.state.username}</h2>
+                                  <h2>{this.state.userName}</h2>
                                   <span>{this.state.error}</span>
                                   </div>
                            
