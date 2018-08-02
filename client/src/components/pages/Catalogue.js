@@ -17,23 +17,27 @@ class Catalogue extends React.Component {
 
     render() {
         return (
-            this.state.results.map(user => {
-                <div>
-                    <h3>Works by {user.userName}</h3>
-                    {
-                        user.posts.map(post => {
-                            return (
-                                <div>
-                                    <h3>{post.postName}</h3><br />
-                                    <img src={post.Link} alt={post.postName}/>
-                                    <Link authorId={user._id} postId={post._id} to={`/item/${authorId}/${postId}`}>More Info</Link>
-                                </div>
-                            )
-                        })
-                    }
+            this.state.results.map((user) => {
+                return (
+                    <div>
+                        <h3>Works by {user.userName}</h3>
+                        {
+                            user.posts.map(post => {
+                                let authorId=user._id;
+                                let postId=post._id;
+                                return (
+                                    <div>
+                                        <h3>{post.postName}</h3><br />
+                                        <img src={post.Link} alt={post.postName}/>
+                                        <Link  to={`/item/${authorId}/${postId}`}>More Info</Link>
+                                    </div>
+                                )
+                            })
+                        }
 
 
-                </div>
+                    </div>
+                )
             })
         )
     }
