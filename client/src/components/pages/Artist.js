@@ -91,15 +91,15 @@ render(){
 <h1 className='header'>Artist Page</h1>
 {/* // A div container that will map thru an individuals
        pictures, picture names and comments about picture */}
-<div className="comments">
-{this.state.comments.map(artistItem=>{
-    <h4>{artistItem.postName}</h4>
+{/* <div className="comments">
+{this.state.comments.map(Post=>{
+    <h4>{Post.postName}</h4>
     // <img src={artistItem.Post.link}/>
     // <ul>
         // <li>{artistItem.Post.comments}</li>
         // </ul>
 })}
-</div>
+</div> */}
 <div className = "center">
 <form>
     
@@ -111,18 +111,9 @@ render(){
                 placeholder=""/>
         </label>
         </form>
-        <form>
-
-           <label>Post Name:
-        <input id = "post" value={this.state.link}
-                name="linkie"
-                type="text"
-                onChange={this.onStateChange}
-                placeholder=""/>
-        </label>
-        </form>
+       
         <form> 
-    <label> Add Link:
+    <label> Post Description:
         <input id = "description" value={this.state.postDescription}
                 name="postDescription"
                 type="text"
@@ -132,16 +123,7 @@ render(){
         </label>
        </form>
 
-       <form>
-       <label>Add Link:
-        <input id = "hooray" value={this.state.link}
-                name="postiepost"
-                type="text"
-                onChange={this.onStateChange}
-                placeholder=""/>
-         
-        </label> 
-       </form>
+       
         
         <form>
     <label>Post Link:

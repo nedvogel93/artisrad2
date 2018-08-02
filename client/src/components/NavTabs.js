@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavTabsCSS from "./NavTabs.css"
+//import NavTabsCSS from "./NavTabs.css"
 
 const NavTabs = () => (
   <ul className="nav nav-tabs">
@@ -14,13 +14,7 @@ const NavTabs = () => (
         Home
       </Link>
     </li>
-    <li className="nav-item">
-        <Link to="" className={
-          window.location.pathname === "/catalogue" ? "nav-link active" : "nav-link"
-        }>
-        Catalogue
-        </Link>
-    </li>
+    
 
     <li className="nav-item">
       <Link

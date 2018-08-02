@@ -48,7 +48,7 @@ class Test extends Component{
                 <h3> Post Name: {user.Post[0].postName}</h3>
                 <h3> Post Rating: {user.Post[0].postRating}</h3>
                 <h3> Post Description: {user.Post.postDescription}</h3>
-                <img src = {user.Post.link} className = "center"/>
+                <img src = {user.Post.link} className = "center" alt = "bummer dude"/>
                 
                 <br/>
             </div> 

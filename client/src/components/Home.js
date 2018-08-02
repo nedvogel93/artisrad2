@@ -10,12 +10,12 @@ export default Home;*/
 
 
 import "./Home.css";
-import SearchForm from "./SearchForm";
+// import SearchForm from "./SearchForm";
 import React from "react";
 import "../App.css";
 import Test from "../Test.js"
 import {Link} from "react-router-dom";
-import {BrowserRouter as Router,Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 
 var x="justin";
 const addToTest=()=>{
