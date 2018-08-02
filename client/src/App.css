@@ -29,4 +29,13 @@ body{background-color:lemonchiffon;
 
 button:hover{background-color:teal;}
 
-img{height:300px;}
+img{height:300px;
+        
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}

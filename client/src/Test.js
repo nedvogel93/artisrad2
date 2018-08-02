@@ -5,32 +5,55 @@ import axios from "axios"
 
 class Test extends Component{
     state={
-        name:"",
-        postName:"",
-        postRating:"",
-        postDescription:"",
-        postLink:"",
-        postComments:""
+    //    name:"",
+    //     postName:"",
+    //     postRating:"",
+    //     postDescription:"",
+    //     postLink:"",
+    //     postComments:"" 
+        results:[]
     }
 
     componentDidMount(){
-        axios.get('/fakePath').then((res)=>{
-            console.log(res.data)
-            
+        axios.get('/api/users').then((res)=>{
+            //console.log(res.data)
+            this.setState({
+                results: res.data
+            })
+            console.log(this.state.results)
           
-           this.setState({name:res.data[0].name})
-           this.setState({postName:res.data[0].post[0].postName})
-            this.setState({postRating:res.data[0].post[0].postRating})
-            this.setState({postDescription:res.data[0].post[0].postDescription})
-            this.setState({postLink:res.data[0].post[0].postLink}) 
-            console.log(this.state);
+            // this.setState({name:res.data[0].userName})
+            // this.setState({postName:res.data[0].Post[0].postName})
+            // this.setState({postRating:res.data[0].Post[0].postRating})
+            // this.setState({postDescription:res.data[0].Post[0].postDescription})
+            // this.setState({postLink:res.data[0].Post[0].link}) 
+            // console.log(this.state.postLink);
         })
        
     }
     
     render(){
         return(
-            <h1>Hello there {this.state.name} </h1>
+        // <div>
+        //     <h1>Hello there {this.state.name} </h1>
+        //     <h3> Post Name: {this.state.postName}</h3>
+        //     <h3> Post Rating: {this.state.postRating}</h3>
+        //     <h3> Post Description: {this.state.postDescription}</h3>
+        //     <img src = {this.state.postLink} />
+        // </div>
+        this.state.results.map(user => {
+            return(
+            <div>
+                <h3> Work by: {user.userName}</h3>
+                <h3> Post Name: {user.Post[0].postName}</h3>
+                <h3> Post Rating: {user.Post[0].postRating}</h3>
+                <h3> Post Description: {user.Post.postDescription}</h3>
+                <img src = {user.Post.link} className = "center"/>
+                
+                <br/>
+            </div> 
+            )
+        })
         )
     }
 }

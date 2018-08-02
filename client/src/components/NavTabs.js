@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import NavTabsCSS from "./NavTabs.css"
 
 const NavTabs = () => (
   <ul className="nav nav-tabs">
@@ -15,11 +15,11 @@ const NavTabs = () => (
       </Link>
     </li>
     <li className="nav-item">
-        <span to="" className={
-          window.location.pathname === "" ? "nav-link active" : "nav-link"
+        <Link to="" className={
+          window.location.pathname === "/catalogue" ? "nav-link active" : "nav-link"
         }>
-        Placeholder
-        </span>
+        Catalogue
+        </Link>
     </li>
 
     <li className="nav-item">

@@ -5,7 +5,12 @@ import Home from "./components/Home.js";
 import Login from "./components/Login.js";
 import Artist from "./components/pages/Artist.js";
 import Catalogue from "./components/pages/Catalogue.js";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+import Item from "./components/pages/Item.js";
+import Test from "./Test.js"
+>>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
 import NavTabs from "./components/NavTabs.js"
 
 

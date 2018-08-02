@@ -73,7 +73,7 @@ router.get("/api/users", function(req,res){
 });
 
 
- router.get("/api/:id", function(req,res){
+router.get("/api/:id", function(req,res){
      console.log("hello")
       user.findOne({
           _id: req.params.id
@@ -83,6 +83,53 @@ router.get("/api/users", function(req,res){
       });
  });
 
+<<<<<<< HEAD
+=======
+
+router.post('/submit',(req,res)=>{
+    console.log('i fuckin hate you')
+    // var pulledUsers=[];
+    //console.log("talk to me you fuck!!!")
+    var submittedUser=req.body.userName
+    user.find().then((docs)=>{
+        for(var i=0;i<docs.length;i++){
+            if (submittedUser === docs[i].userName){
+                console.log("found")
+                res.send(docs[i], "hello")
+                
+            }
+            else{
+                console.log("nope!")
+            }
+        }
+        
+})
+    //    console.log("Pulled users: " +pulledUsers)
+    //    console.log("Submitted" + submittedUser)
+ 
+    
+//   var indexOfUser= users.findIndex(i => i.name === submittedUser.name);
+  
+//   if(submittedUser.password === users[indexOfUser].password){
+  /*if (req.body.userName === "bryan" && req.body.password === "password"){
+
+  
+  console.log(submittedUser.password);
+  console.log('nailed it!')
+  loggedIn=true;
+  } 
+  else{loggedIn=false;} */
+  
+  
+  });
+
+//   router.get('/submit',(req,res)=>{
+//       res.send(user)
+//   })
+ 
+
+
+>>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
  var demoObject=[{
         name:"Brian",
         password:"yourbitchcantdrive",
@@ -103,10 +150,32 @@ router.get("/api/users", function(req,res){
         }]
  }]
 
- router.get('/fakePath',(req,res)=>{
+
+//  var demoObject=[{
+//         name:"Brian",
+//         password:"yourbitchcantdrive",
+//         post:[{
+//             postName:"ducks on a pond",
+//             postRating:7,
+//             postDescription:"ducks peacefully on a pond",
+//             link:"https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-duck-pond-mindy-newman.jpg",
+//             comments:[{
+//                 comment:"Really like those ducks!",
+//             },
+//         {
+//                 comment:"Duck on a pond. Genius!"
+//         },
+//     {
+//                 coment:"Could stare at it for hours"
+//     }]
+//         }]
+//  }]
+
+//  router.get('/fakePath',(req,res)=>{
     
-     res.send(demoObject)
- })
+//      res.send(demoObject)
+//  })
+
 
  router.get("/api/:id/:postId", function (req,res){
      user.findOne({"_id": req.params.id, "Post._id":req.params.Postid}).then((docs) => {
@@ -114,6 +183,10 @@ router.get("/api/users", function(req,res){
      
     });
  });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5127282db32f473cbf258f97afa9ee647736672a
 
  
 //    router.post("/api/:id/comments", function(req,res) {
