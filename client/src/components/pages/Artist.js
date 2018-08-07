@@ -2,6 +2,11 @@ import React, {Component} from "react";
 import "../../App.css";
 import axios from "axios";
 
+
+
+
+
+
 export function uploadSuccess({data}) {
     return {
         type: "UPLOAD_DOCUMENT_SUCCESS",
@@ -50,10 +55,14 @@ class Artist extends Component{
 
    
     
-   handleFileUpload = (event) =>{
-        console.log(event.target.files[0])
-        this.setState({file:event.target.files[0]})
-        
+    handleFileUpload = (event) =>{
+        // console.log(event.target.files[0])
+        // this.setState({file:event.target.files[0]})
+        const file = files[0];
+        this.props.actions.uploadRequest({
+            file,
+            name: 'Awesome Cat Pic'
+    })    
     }
 
 
@@ -81,6 +90,8 @@ class Artist extends Component{
         console.log(res, this.state)
         })
      }
+
+     
 
 render(){
     
@@ -130,7 +141,7 @@ render(){
         <input value={this.state.link}
                 name="link"
                 type="text"
-                onChange={this.onStateChange}
+                onChange={this.handleFileUpload}
                 placeholder=""/>
         </label>
         </form>

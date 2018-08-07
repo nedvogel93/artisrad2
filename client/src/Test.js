@@ -5,7 +5,7 @@ import axios from "axios"
 
 class Test extends Component{
     state={
-    //    name:"",
+    //     name:"",
     //     postName:"",
     //     postRating:"",
     //     postDescription:"",

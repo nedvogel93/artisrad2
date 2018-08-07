@@ -8,7 +8,7 @@ class Login extends Component{
         userName:"",
         password:"",
         error:null,
-        id:""
+        
     }
 
     onStateChange=(event)=>{

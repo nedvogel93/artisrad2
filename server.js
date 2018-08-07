@@ -6,7 +6,9 @@ const fileUpload = require("express-fileupload")
 const cors = require("cors")
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+const multer = require("multer");
+const next = require("next");
+const cloudinary = require("cloudinary");
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -7,7 +7,6 @@ import Artist from "./components/pages/Artist.js";
 import Catalogue from "./components/pages/Catalogue.js";
 import axios from "axios";
 import Test from "./Test.js"
-
 import NavTabs from "./components/NavTabs.js"
 
 
